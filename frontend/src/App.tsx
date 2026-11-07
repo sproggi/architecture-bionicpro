@@ -13,7 +13,10 @@ const App: React.FC = () => {
   return (
     <ReactKeycloakProvider
       authClient={keycloak}
-      initOptions={{ onReady: () => keycloak.updateToken(30).catch(() => {}) }}
+      initOptions={{
+        pkceMethod: 'S256',
+        onReady: () => keycloak.updateToken(30).catch(() => {}),
+      }}
     >
       <ReportPage />
     </ReactKeycloakProvider>
