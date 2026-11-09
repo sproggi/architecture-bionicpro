@@ -98,6 +98,9 @@ services:
     build: ../api
     ports:
       - "8000:8000"
+    networks:
+      - default
+      - bionicpro
     environment:
       CH_HOST: clickhouse
       CH_PORT: "9000"
@@ -105,7 +108,7 @@ services:
       CH_PASSWORD: reports_password
       CH_DB: reports
       REQUIRE_AUTH: "true"
-      KEYCLOAK_URL: http://host.docker.internal:8080
+      KEYCLOAK_URL: http://keycloak:8080
       KEYCLOAK_REALM: reports-realm
       REQUIRED_ROLE: prothetic_user
       FRONTEND_ORIGIN: http://localhost:3000
@@ -115,3 +118,8 @@ services:
 
 volumes:
   clickhouse_data:
+
+networks:
+  bionicpro:
+    external: true
+    name: bionicpro

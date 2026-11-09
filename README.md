@@ -44,17 +44,15 @@
 
 ## Запуск
 
-Требуется Docker Desktop.
-
 ```bash
-# 1) Пайплайн: Airflow + ClickHouse + телеметрия + CRM mock + API отчётов
+# 1) Keycloak + фронтенд (создаёт общую сеть bionicpro)
+docker compose up -d --build
+
+# 2) Пайплайн: Airflow + ClickHouse + телеметрия + CRM mock + API отчётов
 cd airflow
 docker compose up -d --build
-
-# 2) Keycloak + фронтенд
-cd ..
-docker compose up -d --build
 ```
+
 
 После первого запуска:
 
