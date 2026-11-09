@@ -1,0 +1,5 @@
+fastapi>=0.115,<1.0
+uvicorn[standard]>=0.30
+clickhouse-driver>=0.2.6
+PyJWT[crypto]>=2.8
+requests>=2.31
